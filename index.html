@@ -88,6 +88,7 @@
             border-radius: 8px;
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0,0,0,0.5);
             border: 1px solid rgba(212, 175, 55, 0.3);
+            overflow: visible;
         }
 
         .envelope-flap {
@@ -101,7 +102,7 @@
             border-top: 110px solid #6B1D24;
             transform-origin: top center;
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 10;
+            z-index: 20;
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
             pointer-events: none;
         }
@@ -143,39 +144,46 @@
             .envelope-pocket-right { border-bottom-width: 260px; border-left-width: 400px; }
         }
 
-        /* CARTA SALIENTE AJUSTADA PARA VISIBILIDAD PERFECTA */
+        /* CARTA QUE EMERGE DELANTE DE TODO EN EL ÚLTIMO CLIC */
         .letter-inside {
             position: absolute;
-            bottom: 8px;
-            left: 6%;
-            width: 88%;
+            bottom: 10px;
+            left: 5%;
+            width: 90%;
             height: 90%;
             background: #FBF7EE;
-            border-radius: 4px;
+            border-radius: 6px;
             z-index: 5;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            padding: 12px 15px;
-            transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            padding: 15px;
+            transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
             transform: translateY(0);
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             border: 1px solid #E5DCCB;
             pointer-events: none;
-            overflow: hidden;
         }
 
+        /* CLASE PARA CUANDO LA CARTA SALE DELANTE DE TODO */
+        .letter-emerged {
+            transform: translateY(-130px) scale(1.08) !important;
+            z-index: 60 !important;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6) !important;
+        }
+
+        /* SELLO DE CERA TÁCTIL ABSOLUTO */
         .wax-seal {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -40%);
-            width: 82px;
-            height: 82px;
+            width: 84px;
+            height: 84px;
             background: radial-gradient(circle at 35% 35%, #9E2A35, #4A1217);
             border-radius: 50%;
-            z-index: 50;
+            z-index: 100;
             box-shadow: 0 6px 16px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.3);
             cursor: pointer;
             display: flex;
@@ -257,18 +265,18 @@
                     <div id="envelopeFlap" class="envelope-flap"></div>
                     
                     <div id="letterInside" class="letter-inside">
-                        <div class="w-10 h-0.5 bg-wine-900/30 mb-1.5"></div>
-                        <h3 class="font-cursive text-lg text-wine-900 text-center mb-1">Para Karina...</h3>
-                        <p class="font-serif italic text-wine-900/80 text-[10px] sm:text-xs text-center leading-tight max-w-xs">
-                            "Han pasado los días y no he dejado de pensar en ti, en lo que vivimos..."
+                        <div class="w-10 h-0.5 bg-wine-900/30 mb-2"></div>
+                        <h3 class="font-cursive text-xl text-wine-900 text-center">Para Karina...</h3>
+                        <p class="font-serif italic text-wine-900/80 text-[11px] sm:text-xs text-center mt-1 leading-relaxed max-w-xs">
+                            "Han pasado los días y no he dejado de pensar en ti..."
                         </p>
-                        <div class="w-10 h-0.5 bg-wine-900/30 mt-1.5"></div>
+                        <div class="w-10 h-0.5 bg-wine-900/30 mt-2"></div>
                     </div>
 
                     <div class="envelope-pocket-left"></div>
                     <div class="envelope-pocket-right"></div>
 
-                    <!-- SELLO DE CERA TÁCTIL -->
+                    <!-- SELLO DE CERA TÁCTIL ABSOLUTO -->
                     <div id="waxSealBtn" class="wax-seal" role="button" aria-label="Abrir sobre">
                         <svg class="w-full h-full absolute inset-0 p-1 pointer-events-none" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="42" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7"/>
@@ -420,7 +428,7 @@
 
     </main>
 
-    <!-- SCRIPT TÁCTIL Y DE POSICIONAMIENTO -->
+    <!-- SCRIPT TÁCTIL Y DE ANIMACIÓN -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const bgMusic = document.getElementById('bgMusic');
@@ -511,22 +519,26 @@
                 }
             }
 
-            waxSealBtn.addEventListener('touchend', handleSealInteraction, { passive: false });
+            // Capturamos el toque en el sello de forma instantánea en móviles y PC
             waxSealBtn.addEventListener('click', handleSealInteraction);
+            waxSealBtn.addEventListener('touchend', handleSealInteraction, { passive: false });
 
             function triggerEnvelopeOpening() {
+                // 1. Ocultar el sello instantáneamente
                 waxSealBtn.style.opacity = '0';
-                waxSealBtn.style.transform = 'translate(-50%, -40%) scale(1.2)';
-                waxSealBtn.style.transition = 'all 0.4s ease';
+                waxSealBtn.style.pointerEvents = 'none';
 
+                // 2. Abrir la solapa superior del sobre
                 setTimeout(() => {
                     envelopeFlap.style.transform = 'rotateX(180deg)';
-                }, 300);
+                }, 200);
 
+                // 3. Hacer que la carta emerja por DELANTE DE TODO en el centro de la pantalla
                 setTimeout(() => {
-                    letterInside.style.transform = 'translateY(-110px)';
-                }, 800);
+                    letterInside.classList.add('letter-emerged');
+                }, 700);
 
+                // 4. Pausa de 3 segundos con la carta en primer plano, luego transicionar al diario completo arriba del todo
                 setTimeout(() => {
                     phase1.style.opacity = '0';
                     phase1.style.transform = 'scale(0.95)';
@@ -535,4 +547,27 @@
                         phase1.style.display = 'none';
                         phase2.classList.remove('hidden');
                         
-                        void phase2.
+                        void phase2.offsetWidth;
+
+                        phase2.classList.remove('opacity-0', 'translate-y-8');
+                        phase2.classList.add('opacity-100', 'translate-y-0');
+
+                        // Forzar el inicio absoluto desde la parte superior de la página
+                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                        document.body.scrollTop = 0;
+                        document.documentElement.scrollTop = 0;
+                    }, 600);
+                }, 3800);
+            }
+
+            replyBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                replyConfirmation.classList.remove('hidden');
+                replyBtn.disabled = true;
+                replyBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                replyBtn.innerText = "Mensaje guardado";
+            });
+        });
+    </script>
+</body>
+</html>
