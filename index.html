@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Para Karina | Una Carta Sincera</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,28 +43,29 @@
             color: #2C0B0E;
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* PERGAMINO Y TEXTURA DE LA CARTA */
         .parchment-bg {
             background-color: #FBF7EE;
             background-image: radial-gradient(#E8DEC8 1px, transparent 1px);
-            background-size: 24px 24px;
+            background-size: 20px 20px;
         }
 
-        /* ESTRUCTURA DEL SOBRE VINTAGE */
+        /* ESTRUCTURA DEL SOBRE VINTAGE OPTIMIZADO PARA MÓVIL */
         .envelope-wrapper {
             perspective: 1000px;
             position: relative;
-            width: 340px;
-            height: 230px;
+            width: 300px;
+            height: 200px;
             margin: 0 auto;
         }
 
         @media (min-width: 640px) {
             .envelope-wrapper {
-                width: 440px;
-                height: 290px;
+                width: 400px;
+                height: 260px;
             }
         }
 
@@ -75,7 +76,7 @@
             height: 100%;
             background-color: #4A1217;
             border-radius: 8px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0,0,0,0.5);
             border: 1px solid rgba(212, 175, 55, 0.3);
             overflow: hidden;
         }
@@ -87,9 +88,9 @@
             left: 0;
             width: 100%;
             height: 0;
-            border-left: 170px solid transparent;
-            border-right: 170px solid transparent;
-            border-top: 130px solid #6B1D24;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 110px solid #6B1D24;
             transform-origin: top center;
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 25;
@@ -98,9 +99,9 @@
 
         @media (min-width: 640px) {
             .envelope-flap {
-                border-left-width: 220px;
-                border-right-width: 220px;
-                border-top-width: 160px;
+                border-left-width: 200px;
+                border-right-width: 200px;
+                border-top-width: 140px;
             }
         }
 
@@ -111,8 +112,8 @@
             left: 0;
             width: 0;
             height: 0;
-            border-bottom: 230px solid #380C10;
-            border-right: 340px solid transparent;
+            border-bottom: 200px solid #380C10;
+            border-right: 300px solid transparent;
             z-index: 15;
             pointer-events: none;
         }
@@ -123,21 +124,21 @@
             right: 0;
             width: 0;
             height: 0;
-            border-bottom: 230px solid #410E13;
-            border-left: 340px solid transparent;
+            border-bottom: 200px solid #410E13;
+            border-left: 300px solid transparent;
             z-index: 16;
             pointer-events: none;
         }
 
         @media (min-width: 640px) {
-            .envelope-pocket-left { border-bottom-width: 290px; border-right-width: 440px; }
-            .envelope-pocket-right { border-bottom-width: 290px; border-left-width: 440px; }
+            .envelope-pocket-left { border-bottom-width: 260px; border-right-width: 400px; }
+            .envelope-pocket-right { border-bottom-width: 260px; border-left-width: 400px; }
         }
 
         /* La Carta guardada adentro */
         .letter-inside {
             position: absolute;
-            bottom: 12px;
+            bottom: 10px;
             left: 5%;
             width: 90%;
             height: 85%;
@@ -145,7 +146,7 @@
             border-radius: 4px;
             z-index: 10;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            padding: 20px;
+            padding: 15px;
             transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
             transform: translateY(0);
             display: flex;
@@ -161,8 +162,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -40%);
-            width: 76px;
-            height: 76px;
+            width: 68px;
+            height: 68px;
             background: radial-gradient(circle at 35% 35%, #9E2A35, #4A1217);
             border-radius: 50%;
             z-index: 30;
@@ -175,13 +176,8 @@
             user-select: none;
         }
 
-        .wax-seal:hover {
-            transform: translate(-50%, -40%) scale(1.06);
-            box-shadow: 0 8px 24px rgba(212,175,55,0.3), inset 0 2px 4px rgba(255,255,255,0.4);
-        }
-
         .wax-seal:active {
-            transform: translate(-50%, -40%) scale(0.98);
+            transform: translate(-50%, -40%) scale(0.95);
         }
 
         /* Lineas de grieta */
@@ -193,29 +189,23 @@
             transition: opacity 0.3s ease;
         }
 
-        /* MARCO POLAROID */
+        /* MARCO POLAROID MÓVIL */
         .polaroid-frame {
             background: #FFFFFF;
-            padding: 12px 12px 32px 12px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            padding: 10px 10px 28px 10px;
+            box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.15);
             position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .polaroid-frame:hover {
-            transform: translateY(-4px) rotate(0deg) !important;
         }
 
         .polaroid-tape {
             position: absolute;
-            top: -12px;
+            top: -10px;
             left: 50%;
             transform: translateX(-50%) rotate(-1deg);
-            width: 80px;
-            height: 22px;
-            background-color: rgba(239, 230, 213, 0.75);
+            width: 70px;
+            height: 18px;
+            background-color: rgba(239, 230, 213, 0.8);
             border: 1px solid rgba(212, 175, 55, 0.3);
-            backdrop-filter: blur(1px);
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             z-index: 5;
         }
@@ -223,11 +213,11 @@
 </head>
 <body class="font-sans antialiased selection:bg-wine-700 selection:text-white">
 
-    <!-- REPRODUCTOR DE MÚSICA FLOTANTE PARA CELULAR -->
-    <div id="musicPlayerContainer" class="fixed bottom-4 right-4 z-50 flex items-center gap-2 bg-wine-900/90 border border-gold/40 backdrop-blur-md px-4 py-2.5 rounded-full shadow-2xl transition-all duration-300">
-        <button id="audioToggleBtn" class="flex items-center gap-2 text-gold text-xs font-serif italic focus:outline-none">
-            <span id="audioIcon" class="text-base">🎵</span>
-            <span id="audioText">Reproducir "Fragancia"</span>
+    <!-- REPRODUCTOR DE MÚSICA FLOTANTE DISCRETO PARA CELULAR -->
+    <div id="musicPlayerContainer" class="fixed top-4 right-4 z-50 flex items-center gap-2 bg-wine-900/90 border border-gold/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg transition-all duration-300">
+        <button id="audioToggleBtn" class="flex items-center gap-1.5 text-gold text-xs font-serif italic focus:outline-none">
+            <span id="audioIcon" class="text-sm">🎵</span>
+            <span id="audioText">Música</span>
         </button>
         <audio id="bgMusic" loop preload="auto">
             <source src="Fragancia.mp3" type="audio/mpeg">
@@ -235,17 +225,17 @@
         </audio>
     </div>
 
-    <main class="relative w-full min-h-screen flex items-center justify-center p-4 md:p-8">
+    <main class="relative w-full min-h-screen flex items-center justify-center p-3 sm:p-6">
 
         <!-- ================================================== -->
         <!-- FASE 1: EL SOBRE VINTAGE Y SELLO DE CERA -->
         <!-- ================================================== -->
-        <section id="phase1" class="w-full max-w-xl flex flex-col items-center justify-center transition-all duration-700 z-20 my-auto">
+        <section id="phase1" class="w-full max-w-md flex flex-col items-center justify-center transition-all duration-700 z-20 my-auto">
             
-            <div class="text-center mb-8 px-4">
-                <span class="text-gold uppercase tracking-[0.3em] text-xs font-semibold block mb-2 opacity-90">Para Karina</span>
-                <h1 class="font-serif text-3xl md:text-4xl text-parchment italic font-light">Una carta desde el corazón y la madurez</h1>
-                <p class="text-gray-400 text-xs mt-2 font-light">Haz clic en el sello de cera para abrir la carta</p>
+            <div class="text-center mb-6 px-2">
+                <span class="text-gold uppercase tracking-[0.25em] text-[10px] font-semibold block mb-1 opacity-90">Para Karina</span>
+                <h1 class="font-serif text-2xl sm:text-3xl text-parchment italic font-light">Una carta desde el corazón y la madurez</h1>
+                <p class="text-gray-400 text-xs mt-2 font-light">Toca el sello de cera para abrir el sobre</p>
             </div>
 
             <!-- CONTENEDOR DEL SOBRE -->
@@ -257,12 +247,12 @@
 
                     <!-- Carta guardada dentro -->
                     <div id="letterInside" class="letter-inside">
-                        <div class="w-12 h-0.5 bg-wine-900/30 mb-3"></div>
-                        <h3 class="font-cursive text-2xl md:text-3xl text-wine-900 text-center">Para Karina...</h3>
-                        <p class="font-serif italic text-wine-900/80 text-xs md:text-sm text-center mt-2 leading-relaxed max-w-xs">
+                        <div class="w-10 h-0.5 bg-wine-900/30 mb-2"></div>
+                        <h3 class="font-cursive text-xl text-wine-900 text-center">Para Karina...</h3>
+                        <p class="font-serif italic text-wine-900/80 text-[11px] sm:text-xs text-center mt-1 leading-relaxed max-w-xs">
                             "Han pasado los días y no he dejado de pensar en ti, en lo que vivimos y en lo que estoy aprendiendo..."
                         </p>
-                        <div class="w-12 h-0.5 bg-wine-900/30 mt-3"></div>
+                        <div class="w-10 h-0.5 bg-wine-900/30 mt-2"></div>
                     </div>
 
                     <!-- Bolsillos laterales -->
@@ -291,11 +281,11 @@
             </div>
 
             <!-- MENSAJES PROGRESIVOS -->
-            <div class="mt-8 h-16 w-full max-w-md flex flex-col items-center justify-center text-center px-4">
-                <p id="sealMessage" class="font-serif italic text-gold/90 text-sm md:text-base transition-all duration-300">
-                    Presiona el sello para abrir
+            <div class="mt-6 h-14 w-full max-w-xs flex flex-col items-center justify-center text-center px-2">
+                <p id="sealMessage" class="font-serif italic text-gold/90 text-xs sm:text-sm transition-all duration-300">
+                    Toca el sello para abrir
                 </p>
-                <span id="clickProgress" class="text-[10px] text-gray-400 uppercase tracking-widest mt-2 font-mono">
+                <span id="clickProgress" class="text-[9px] text-gray-400 uppercase tracking-widest mt-1.5 font-mono">
                     Clic 0 de 4
                 </span>
             </div>
@@ -306,108 +296,108 @@
         <!-- ================================================== -->
         <!-- FASE 2: DIARIO / CARTA COMPLETA -->
         <!-- ================================================== -->
-        <section id="phase2" class="hidden w-full max-w-3xl opacity-0 transform translate-y-8 transition-all duration-1000 z-10 my-8">
+        <section id="phase2" class="hidden w-full max-w-2xl opacity-0 transform translate-y-8 transition-all duration-1000 z-10 my-4 sm:my-8">
             
-            <div class="parchment-bg rounded-xl shadow-2xl border border-gold/30 p-6 sm:p-10 md:p-14 relative overflow-hidden">
+            <div class="parchment-bg rounded-xl shadow-2xl border border-gold/30 p-4 sm:p-8 md:p-12 relative overflow-hidden">
                 
                 <!-- Adornos de esquina vintage -->
-                <div class="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-wine-900/30 m-4 pointer-events-none"></div>
-                <div class="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-wine-900/30 m-4 pointer-events-none"></div>
-                <div class="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-wine-900/30 m-4 pointer-events-none"></div>
-                <div class="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-wine-900/30 m-4 pointer-events-none"></div>
+                <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-wine-900/30 m-3 pointer-events-none"></div>
+                <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-wine-900/30 m-3 pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-wine-900/30 m-3 pointer-events-none"></div>
+                <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-wine-900/30 m-3 pointer-events-none"></div>
 
                 <!-- ENCABEZADO -->
-                <header class="text-center mb-10 pb-6 border-b border-wine-900/15">
-                    <span class="text-xs uppercase tracking-[0.25em] text-wine-800 font-semibold block mb-1">Para Karina, con todo mi corazón</span>
-                    <h1 class="font-cursive text-4xl sm:text-5xl text-wine-900 font-bold mb-2">Lo que siento y he comprendido</h1>
-                    <p class="font-serif italic text-lg text-wine-800/80">Nuestros 5 meses, mis errores y mi proceso de cambio</p>
+                <header class="text-center mb-8 pb-5 border-b border-wine-900/15">
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-wine-800 font-semibold block mb-1">Para Karina, con todo mi corazón</span>
+                    <h1 class="font-cursive text-3xl sm:text-4xl text-wine-900 font-bold mb-1.5">Lo que siento y he comprendido</h1>
+                    <p class="font-serif italic text-sm sm:text-base text-wine-800/80">Nuestros 5 meses, mis errores y mi proceso de cambio</p>
                 </header>
 
                 <!-- CONTENIDO EN CAPÍTULOS -->
-                <article class="space-y-10 text-gray-800 leading-relaxed font-sans text-sm sm:text-base">
+                <article class="space-y-8 text-gray-800 leading-relaxed font-sans text-xs sm:text-sm md:text-base">
 
                     <!-- CAPÍTULO 1 -->
-                    <div class="space-y-3">
-                        <h2 class="font-serif text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
-                            <span class="text-gold text-lg">✦</span> 1. El valor de estos días y el silencio
+                    <div class="space-y-2.5">
+                        <h2 class="font-serif text-xl sm:text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
+                            <span class="text-gold text-base">✦</span> 1. El valor de estos días y el silencio
                         </h2>
-                        <p class="text-gray-700 leading-7">
+                        <p class="text-gray-700 leading-6 sm:leading-7">
                             Han pasado los días desde aquel domingo y reconozco que ha sido sumamente difícil procesar todo. Al principio, la desesperación, la ansiedad y el ruido constante en mi cabeza no me dejaban ver con claridad. Sin embargo, este tiempo obligado de distancia me ha obligado a frenar en seco y a entender, por fin, el verdadero valor del silencio. Entendí que dejarte respirar no era perderte, sino la única forma real de respetarte y de aquietar mi propio caos. Hoy sé que el amor verdadero no asfixia ni presiona; el amor verdadero cuida, respeta los tiempos y sabe esperar con madurez.
                         </p>
 
                         <!-- FOTO POLAROID 1 (1.jpeg) -->
-                        <div class="my-8 flex justify-center">
-                            <div class="polaroid-frame transform -rotate-2 max-w-xs sm:max-w-sm">
+                        <div class="my-6 flex justify-center">
+                            <div class="polaroid-frame transform -rotate-1 max-w-[260px] sm:max-w-xs">
                                 <div class="polaroid-tape"></div>
                                 <img src="https://raw.githubusercontent.com/aromq90-max/carta/main/1.jpeg" 
                                      alt="Nuestros primeros momentos" 
-                                     class="w-full h-48 sm:h-56 object-cover rounded-sm bg-[#f2e6df]"
+                                     class="w-full h-40 sm:h-52 object-cover rounded-sm bg-[#f2e6df]"
                                      onerror="this.src='https://placehold.co/600x400/4A1217/FBF7EE?text=Foto+1.jpeg+No+Encontrada'">
-                                <p class="font-cursive text-center text-xl text-wine-900 mt-3">Cuando todo comenzó...</p>
+                                <p class="font-cursive text-center text-lg text-wine-900 mt-2">Cuando todo comenzó...</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- CAPÍTULO 2 -->
-                    <div class="space-y-3">
-                        <h2 class="font-serif text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
-                            <span class="text-gold text-lg">✦</span> 2. Mis errores, mi apego ansioso y lo que sentí
+                    <div class="space-y-2.5">
+                        <h2 class="font-serif text-xl sm:text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
+                            <span class="text-gold text-base">✦</span> 2. Mis errores, mi apego ansioso y lo que sentí
                         </h2>
-                        <p class="text-gray-700 leading-7">
+                        <p class="text-gray-700 leading-6 sm:leading-7">
                             Esa noche de la discusión mi apego ansioso se desbordó por completo. Comencé a llamarte incontables veces y a buscarte con otra cuenta cuando me habías bloqueado, viéndolo erróneamente como un juego o una forma insistente de arreglarlo, cuando en realidad lo único que logré fue asfixiarte y no respetar tu espacio al día siguiente. El miedo profundo a perderte me cegó por completo; sentía que te desvanecías, sentía un vacío enorme en el pecho y eso me aterraba. Pero en medio de ese torbellino de mis propias emociones, nunca me detuve a ver con empatía qué estabas sintiendo tú, qué carga o presión te estaba generando mi actitud, cuando yo sé perfectamente cuánto me amas y cuánto te amo yo a ti. Me duele haber manejado tan mal mis impulsos.
                         </p>
                     </div>
 
                     <!-- CAPÍTULO 3 -->
-                    <div class="space-y-3">
-                        <h2 class="font-serif text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
-                            <span class="text-gold text-lg">✦</span> 3. Entendiendo nuestros mundos (Ansioso y Evitativo)
+                    <div class="space-y-2.5">
+                        <h2 class="font-serif text-xl sm:text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
+                            <span class="text-gold text-base">✦</span> 3. Entendiendo nuestros mundos (Ansioso y Evitativo)
                         </h2>
-                        <p class="text-gray-700 leading-7">
+                        <p class="text-gray-700 leading-6 sm:leading-7">
                             He reflexionado profundamente sobre nuestra dinámica. Yo desde un apego ansioso y tú desde un apego evitativo. He comprendido desde la madurez que tu distancia en momentos de tensión no es desamor, sino tu forma natural y necesaria de procesar las cosas, y que mi ansiedad no puede convertirse en un peso injusto para ti. Aunque sé que mi apego ansioso a veces reacciona de forma intensa frente al miedo, eso no quiere decir que seamos incompatibles. Significa que necesitamos aprender a comunicarnos y a respetarnos desde un lugar más sano, asumiendo yo la responsabilidad total de trabajar en mis propios demonios internos para no volvértelos a proyectar.
                         </p>
 
                         <!-- FOTO POLAROID 2 (14.jpeg) -->
-                        <div class="my-8 flex justify-center">
-                            <div class="polaroid-frame transform rotate-2 max-w-xs sm:max-w-sm">
+                        <div class="my-6 flex justify-center">
+                            <div class="polaroid-frame transform rotate-1 max-w-[260px] sm:max-w-xs">
                                 <div class="polaroid-tape"></div>
                                 <img src="https://raw.githubusercontent.com/aromq90-max/carta/main/14.jpeg" 
                                      alt="Nuestros recuerdos especiales" 
-                                     class="w-full h-48 sm:h-56 object-cover rounded-sm bg-[#f2e6df]"
+                                     class="w-full h-40 sm:h-52 object-cover rounded-sm bg-[#f2e6df]"
                                      onerror="this.src='https://placehold.co/600x400/4A1217/FBF7EE?text=Foto+14.jpeg+No+Encontrada'">
-                                <p class="font-cursive text-center text-xl text-wine-900 mt-3">Nuestros recuerdos más bonitos</p>
+                                <p class="font-cursive text-center text-lg text-wine-900 mt-2">Nuestros recuerdos más bonitos</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- CAPÍTULO 4 -->
-                    <div class="space-y-3">
-                        <h2 class="font-serif text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
-                            <span class="text-gold text-lg">✦</span> 4. Acciones reales y transformación personal
+                    <div class="space-y-2.5">
+                        <h2 class="font-serif text-xl sm:text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
+                            <span class="text-gold text-base">✦</span> 4. Acciones reales y transformación personal
                         </h2>
-                        <p class="text-gray-700 leading-7">
+                        <p class="text-gray-700 leading-6 sm:leading-7">
                             No quiero que esto se quede en simples palabras bonitas que se las lleva el viento. Estos días me han servido profundamente para reestructurarme. Estoy trabajando mucho en mí, tanto psicológica como físicamente. Me está costando, sí, pero estoy canalizando toda esa energía para estar tranquilo, para centrarme en mi propio mundo sabiendo que tú tienes el tuyo, y que la belleza de estar juntos radica en compartir sanamente lo mejor de cada uno sin perder nuestra individualidad. Estoy sanando por mí mismo. Luchar y buscar reconstruir por amor no nace de la insistencia terca, sino de un amor real y genuino que se demuestra con cambios verdaderos y hechos tangibles todos los días.
                         </p>
                     </div>
 
                     <!-- CAPÍTULO 5 -->
-                    <div class="space-y-3 pb-2">
-                        <h2 class="font-serif text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
-                            <span class="text-gold text-lg">✦</span> 5. El amor que no se apaga y el deseo de conversar
+                    <div class="space-y-2.5 pb-2">
+                        <h2 class="font-serif text-xl sm:text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
+                            <span class="text-gold text-base">✦</span> 5. El amor que no se apaga y el deseo de conversar
                         </h2>
-                        <p class="text-gray-700 leading-7">
-                            No he dejado de pensar en ti ni un solo instante. Tan sinful despertar, estar en mi casa haciendo mis cosas, pasar por una florería o escuchar de la nada ciertas canciones me devuelve inmediatamente a ti y a todo lo hermoso que construimos en estos 5 meses. Sé que de repente hoy no quieras saber nada o tengas dudas, pero daría todo por tener esa oportunidad que verdaderamente nos debimos dar ese último día: una charla desde la madurez, donde el amor y los cambios puedan demostrarse de verdad. No se trata de las promesas de antes, sino del hombre en el que me estoy convirtiendo. Te amo con el alma, y aunque sé que debo respetar tus tiempos, quería que supieras que mi corazón sigue abierto y dispuesto a hacer las cosas bien.
+                        <p class="text-gray-700 leading-6 sm:leading-7">
+                            No he dejado de pensar en ti ni un solo instante. Tan solo despertar, estar en mi casa haciendo mis cosas, pasar por una florería o escuchar de la nada ciertas canciones me devuelve inmediatamente a ti y a todo lo hermoso que construimos en estos 5 meses. Sé que de repente hoy no quieras saber nada o tengas dudas, pero daría todo por tener esa oportunidad que verdaderamente nos debimos dar ese último día: una charla desde la madurez, donde el amor y los cambios puedan demostrarse de verdad. No se trata de las promesas de antes, sino del hombre en el que me estoy convirtiendo. Te amo con el alma, y aunque sé que debo respetar tus tiempos, quería que supieras que mi corazón sigue abierto y dispuesto a hacer las cosas bien.
                         </p>
 
                         <!-- FOTO POLAROID 3 (16.jpeg) -->
-                        <div class="my-8 flex justify-center">
-                            <div class="polaroid-frame transform -rotate-1 max-w-xs sm:max-w-sm">
+                        <div class="my-6 flex justify-center">
+                            <div class="polaroid-frame transform -rotate-1 max-w-[260px] sm:max-w-xs">
                                 <div class="polaroid-tape"></div>
                                 <img src="https://raw.githubusercontent.com/aromq90-max/carta/main/16.jpeg" 
                                      alt="Momentos juntos" 
-                                     class="w-full h-48 sm:h-56 object-cover rounded-sm bg-[#f2e6df]"
+                                     class="w-full h-40 sm:h-52 object-cover rounded-sm bg-[#f2e6df]"
                                      onerror="this.src='https://placehold.co/600x400/4A1217/FBF7EE?text=Foto+16.jpeg+No+Encontrada'">
-                                <p class="font-cursive text-center text-xl text-wine-900 mt-3">Siempre en mi corazón, Karina</p>
+                                <p class="font-cursive text-center text-lg text-wine-900 mt-2">Siempre en mi corazón, Karina</p>
                             </div>
                         </div>
                     </div>
@@ -415,25 +405,25 @@
                 </article>
 
                 <!-- BOTÓN DE INTERACCIÓN SINCERA -->
-                <div class="mt-10 pt-8 border-t border-wine-900/15 text-center space-y-4">
-                    <p class="font-serif text-lg text-wine-900 italic">Si deseas conversar tranquilamente cuando estés lista:</p>
+                <div class="mt-8 pt-6 border-t border-wine-900/15 text-center space-y-3">
+                    <p class="font-serif text-sm sm:text-base text-wine-900 italic">Si deseas conversar tranquilamente cuando estés lista:</p>
                     
-                    <button id="replyBtn" class="px-8 py-3 bg-wine-900 hover:bg-wine-800 text-gold font-medium rounded-full shadow-lg border border-gold/30 transition-all transform hover:scale-105 active:scale-95 inline-flex items-center gap-2 text-sm">
+                    <button id="replyBtn" class="w-full sm:w-auto px-6 py-3 bg-wine-900 hover:bg-wine-800 text-gold font-medium rounded-full shadow-lg border border-gold/30 transition-all active:scale-95 inline-flex items-center justify-center gap-2 text-xs sm:text-sm">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
                         </svg>
                         <span>Me gustaría conversar cuando sea el momento</span>
                     </button>
 
-                    <div id="replyConfirmation" class="hidden p-4 rounded-lg bg-wine-900/10 border border-wine-900/20 text-wine-900 font-serif italic text-sm max-w-md mx-auto">
+                    <div id="replyConfirmation" class="hidden p-3 rounded-lg bg-wine-900/10 border border-wine-900/20 text-wine-900 font-serif italic text-xs sm:text-sm max-w-sm mx-auto">
                         Gracias por leer esta carta, Karina. Respeto tu espacio y estaré disponible cuando lo sientas. Sin prisa.
                     </div>
                 </div>
 
                 <!-- FIRMA -->
-                <footer class="mt-12 text-right border-t border-wine-900/10 pt-6">
-                    <p class="font-sans text-xs text-gray-500 uppercase tracking-widest">Con sinceridad, respeto y amor,</p>
-                    <p class="font-cursive text-3xl text-wine-900 mt-1">Para ti, Karina</p>
+                <footer class="mt-10 text-right border-t border-wine-900/10 pt-5">
+                    <p class="font-sans text-[10px] text-gray-500 uppercase tracking-widest">Con sinceridad, respeto y amor,</p>
+                    <p class="font-cursive text-2xl sm:text-3xl text-wine-900 mt-1">Para ti, Karina</p>
                 </footer>
 
             </div>
@@ -441,34 +431,45 @@
 
     </main>
 
-    <!-- JAVASCRIPT DE LA MECÁNICA Y MÚSICA -->
+    <!-- JAVASCRIPT DE LA MECÁNICA Y MÚSICA AUTOMÁTICA AL ABRIR -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Control de música para celular
             const bgMusic = document.getElementById('bgMusic');
             const audioToggleBtn = document.getElementById('audioToggleBtn');
             const audioIcon = document.getElementById('audioIcon');
             const audioText = document.getElementById('audioText');
             let isPlaying = false;
 
+            // Función para iniciar la música de forma segura
+            function startMusic() {
+                if (!isPlaying) {
+                    bgMusic.play().then(() => {
+                        isPlaying = true;
+                        audioIcon.textContent = "⏸️";
+                        audioText.textContent = "Pausar";
+                    }).catch(e => {
+                        console.log("Audio prevenido por el navegador, se activará con el botón manual:", e);
+                    });
+                }
+            }
+
+            // Botón manual por si el navegador requiere interacción extra
             audioToggleBtn.addEventListener('click', () => {
                 if (!isPlaying) {
                     bgMusic.play().then(() => {
                         isPlaying = true;
                         audioIcon.textContent = "⏸️";
-                        audioText.textContent = "Pausar música";
-                    }).catch(e => {
-                        console.log("Error al reproducir audio:", e);
+                        audioText.textContent = "Pausar";
                     });
                 } else {
                     bgMusic.pause();
                     isPlaying = false;
                     audioIcon.textContent = "🎵";
-                    audioText.textContent = "Reproducir 'Fragancia'";
+                    audioText.textContent = "Música";
                 }
             });
 
-            // Frases exactas solicitadas para cada clic en el sello
+            // Frases exactas para cada clic en el sello
             const phrases = [
                 "Lo que siento por ti es real, pero sé que necesito madurar.",
                 "Entiendo perfectamente el error que cometí al no respetar tu espacio.",
@@ -499,50 +500,43 @@
                 if (clickCount < maxClicks) {
                     clickCount++;
 
-                    // Desactivar indicador de pulso en el primer clic
                     if (sealPulse) sealPulse.style.display = 'none';
 
-                    // Actualizar texto del progreso
                     clickProgress.textContent = `Clic ${clickCount} de ${maxClicks}`;
 
-                    // Mostrar mensaje correspondiente
                     sealMessage.style.opacity = '0';
                     setTimeout(() => {
                         sealMessage.textContent = `"${phrases[clickCount - 1]}"`;
                         sealMessage.style.opacity = '1';
                     }, 150);
 
-                    // Revelar grietas en el sello
                     if (clickCount === 1) crack1.style.opacity = '1';
                     if (clickCount === 2) crack2.style.opacity = '1';
                     if (clickCount === 3) crack3.style.opacity = '1';
 
-                    // Clic final: Apertura y transición con 3 segundos de pausa en la vista previa
+                    // Clic final: Iniciar música aquí mismo y abrir sobre
                     if (clickCount === 4) {
+                        startMusic(); // La música arranca justo al abrir el sobre
                         triggerEnvelopeOpening();
                     }
                 }
             });
 
             function triggerEnvelopeOpening() {
-                // 1. Ocultar sello
                 waxSealBtn.style.opacity = '0';
                 waxSealBtn.style.transform = 'translate(-50%, -40%) scale(1.2)';
                 waxSealBtn.style.transition = 'all 0.4s ease';
 
-                // 2. Abrir la solapa hacia arriba
                 setTimeout(() => {
                     envelopeFlap.style.transform = 'rotateX(180deg)';
                     envelopeFlap.style.zIndex = '5';
                 }, 300);
 
-                // 3. Elevar la carta físicamente desde adentro para la vista previa
                 setTimeout(() => {
-                    letterInside.style.transform = 'translateY(-140px)';
+                    letterInside.style.transform = 'translateY(-120px)';
                     letterInside.style.zIndex = '20';
                 }, 800);
 
-                // 4. Esperar exactamente 3 segundos (3000ms) en la vista previa antes de transicionar a la Fase 2
                 setTimeout(() => {
                     phase1.style.opacity = '0';
                     phase1.style.transform = 'scale(0.95)';
@@ -551,10 +545,23 @@
                         phase1.style.display = 'none';
                         phase2.classList.remove('hidden');
                         
-                        // Forzar reflow
                         void phase2.offsetWidth;
 
                         phase2.classList.remove('opacity-0', 'translate-y-8');
                         phase2.classList.add('opacity-100', 'translate-y-0');
 
-                        window.scrollTo({ top: 0, behavior: 'smooth
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 600);
+                }, 3800);
+            }
+
+            replyBtn.addEventListener('click', () => {
+                replyConfirmation.classList.remove('hidden');
+                replyBtn.disabled = true;
+                replyBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                replyBtn.innerText = "Mensaje guardado";
+            });
+        });
+    </script>
+</body>
+</html>
