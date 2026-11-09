@@ -12,6 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <script>
+        // Forzar al navegador móvil a iniciar siempre arriba al recargar o entrar
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
         tailwind.config = {
             theme: {
                 extend: {
@@ -144,7 +150,6 @@
             .envelope-pocket-right { border-bottom-width: 260px; border-left-width: 400px; }
         }
 
-        /* CARTA QUE EMERGE DELANTE DE TODO EN EL ÚLTIMO CLIC */
         .letter-inside {
             position: absolute;
             bottom: 10px;
@@ -166,14 +171,12 @@
             pointer-events: none;
         }
 
-        /* CLASE PARA CUANDO LA CARTA SALE DELANTE DE TODO */
         .letter-emerged {
             transform: translateY(-130px) scale(1.08) !important;
             z-index: 60 !important;
             box-shadow: 0 25px 50px rgba(0,0,0,0.6) !important;
         }
 
-        /* SELLO DE CERA TÁCTIL ABSOLUTO */
         .wax-seal {
             position: absolute;
             top: 50%;
@@ -428,9 +431,12 @@
 
     </main>
 
-    <!-- SCRIPT TÁCTIL Y DE ANIMACIÓN -->
+    <!-- SCRIPT TÁCTIL Y DE POSICIONAMIENTO ABSOLUTO -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Forzar scroll arriba al cargar
+            window.scrollTo(0, 0);
+
             const bgMusic = document.getElementById('bgMusic');
             const audioToggleBtn = document.getElementById('audioToggleBtn');
             const audioIcon = document.getElementById('audioIcon');
@@ -468,7 +474,7 @@
             const phrases = [
                 "Lo que siento por ti es real, pero sé que necesito madurar.",
                 "Entiendo perfectamente el error que cometí al no respetar tu espacio.",
-                "Estoy trabajando en mi ansiedad y en ser una mejor versión de mí.",
+                "Estoy trabajando en my ansiedad y en ser una mejor versión de mí.",
                 "Abriendo el mensaje..."
             ];
 
@@ -519,26 +525,26 @@
                 }
             }
 
-            // Capturamos el toque en el sello de forma instantánea en móviles y PC
+            // Eventos duales garantizados para celular y PC
             waxSealBtn.addEventListener('click', handleSealInteraction);
             waxSealBtn.addEventListener('touchend', handleSealInteraction, { passive: false });
 
             function triggerEnvelopeOpening() {
-                // 1. Ocultar el sello instantáneamente
+                // 1. Ocultar sello
                 waxSealBtn.style.opacity = '0';
                 waxSealBtn.style.pointerEvents = 'none';
 
-                // 2. Abrir la solapa superior del sobre
+                // 2. Abrir solapa
                 setTimeout(() => {
                     envelopeFlap.style.transform = 'rotateX(180deg)';
                 }, 200);
 
-                // 3. Hacer que la carta emerja por DELANTE DE TODO en el centro de la pantalla
+                // 3. Sacar la carta por DELANTE DE TODO en el centro exacto
                 setTimeout(() => {
                     letterInside.classList.add('letter-emerged');
                 }, 700);
 
-                // 4. Pausa de 3 segundos con la carta en primer plano, luego transicionar al diario completo arriba del todo
+                // 4. Pausa de 3.5 segundos viendo la carta grande flotando, luego mostrar Fase 2 desde ARRIBA
                 setTimeout(() => {
                     phase1.style.opacity = '0';
                     phase1.style.transform = 'scale(0.95)';
@@ -552,12 +558,12 @@
                         phase2.classList.remove('opacity-0', 'translate-y-8');
                         phase2.classList.add('opacity-100', 'translate-y-0');
 
-                        // Forzar el inicio absoluto desde la parte superior de la página
+                        // FORZAR EL INICIO ESTRICTAMENTE ARRIBA DEL TODO
                         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
                         document.body.scrollTop = 0;
                         document.documentElement.scrollTop = 0;
                     }, 600);
-                }, 3800);
+                }, 4000);
             }
 
             replyBtn.addEventListener('click', (e) => {
