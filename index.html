@@ -143,25 +143,27 @@
             .envelope-pocket-right { border-bottom-width: 260px; border-left-width: 400px; }
         }
 
+        /* CARTA SALIENTE AJUSTADA PARA VISIBILIDAD PERFECTA */
         .letter-inside {
             position: absolute;
-            bottom: 10px;
-            left: 5%;
-            width: 90%;
-            height: 85%;
+            bottom: 8px;
+            left: 6%;
+            width: 88%;
+            height: 90%;
             background: #FBF7EE;
             border-radius: 4px;
             z-index: 5;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            padding: 15px;
+            padding: 12px 15px;
             transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
             transform: translateY(0);
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             border: 1px solid #E5DCCB;
             pointer-events: none;
+            overflow: hidden;
         }
 
         .wax-seal {
@@ -255,18 +257,18 @@
                     <div id="envelopeFlap" class="envelope-flap"></div>
                     
                     <div id="letterInside" class="letter-inside">
-                        <div class="w-10 h-0.5 bg-wine-900/30 mb-2"></div>
-                        <h3 class="font-cursive text-xl text-wine-900 text-center">Para Karina...</h3>
-                        <p class="font-serif italic text-wine-900/80 text-[11px] sm:text-xs text-center mt-1 leading-relaxed max-w-xs">
-                            "Han pasado los días y no he dejado de pensar en ti..."
+                        <div class="w-10 h-0.5 bg-wine-900/30 mb-1.5"></div>
+                        <h3 class="font-cursive text-lg text-wine-900 text-center mb-1">Para Karina...</h3>
+                        <p class="font-serif italic text-wine-900/80 text-[10px] sm:text-xs text-center leading-tight max-w-xs">
+                            "Han pasado los días y no he dejado de pensar en ti, en lo que vivimos..."
                         </p>
-                        <div class="w-10 h-0.5 bg-wine-900/30 mt-2"></div>
+                        <div class="w-10 h-0.5 bg-wine-900/30 mt-1.5"></div>
                     </div>
 
                     <div class="envelope-pocket-left"></div>
                     <div class="envelope-pocket-right"></div>
 
-                    <!-- SELLO DE CERA TÁCTIL (Z-INDEX ALTO) -->
+                    <!-- SELLO DE CERA TÁCTIL -->
                     <div id="waxSealBtn" class="wax-seal" role="button" aria-label="Abrir sobre">
                         <svg class="w-full h-full absolute inset-0 p-1 pointer-events-none" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="42" fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7"/>
@@ -323,4 +325,214 @@
                                 <img src="https://raw.githubusercontent.com/aromq90-max/carta/main/1.jpeg" 
                                      alt="Nuestros primeros momentos" 
                                      class="w-full h-40 sm:h-52 object-cover rounded-sm bg-[#f2e6df]"
-                                     onerror="this.src='
+                                     onerror="this.src='https://placehold.co/600x400/4A1217/FBF7EE?text=Foto+1.jpeg+No+Encontrada'">
+                                <p class="font-cursive text-center text-lg text-wine-900 mt-2">Cuando todo comenzó...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CAPÍTULO 2 -->
+                    <div class="space-y-2.5">
+                        <h2 class="font-serif text-xl sm:text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
+                            <span class="text-gold text-base">✦</span> 2. Mis errores, mi apego ansioso y lo que sentí
+                        </h2>
+                        <p class="text-gray-700 leading-6 sm:leading-7">
+                            Esa noche de la discusión mi apego ansioso se desbordó por completo. Comencé a llamarte incontables veces y a buscarte con otra cuenta cuando me habías bloqueado, viéndolo erróneamente como un juego o una forma insistente de arreglarlo, cuando en realidad lo único que logré fue asfixiarte y no respetar tu espacio al día siguiente. El miedo profundo a perderte me cegó por completo; sentía que te desvanecías, sentía un vacío enorme en el pecho y eso me aterraba. Pero en medio de ese torbellino de mis propias emociones, nunca me detuve a ver con empatía qué estabas sintiendo tú, qué carga o presión te estaba generando mi actitud, cuando yo sé perfectamente cuánto me amas y cuánto te amo yo a ti. Me duele haber manejado tan mal mis impulsos.
+                        </p>
+                    </div>
+
+                    <!-- CAPÍTULO 3 -->
+                    <div class="space-y-2.5">
+                        <h2 class="font-serif text-xl sm:text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
+                            <span class="text-gold text-base">✦</span> 3. Entendiendo nuestros mundos (Ansioso y Evitativo)
+                        </h2>
+                        <p class="text-gray-700 leading-6 sm:leading-7">
+                            He reflexionado profundamente sobre nuestra dinámica. Yo desde un apego ansioso y tú desde un apego evitativo. He comprendido desde la madurez que tu distancia en momentos de tensión no es desamor, sino tu forma natural y necesaria de procesar las cosas, y que mi ansiedad no puede convertirse en un peso injusto para ti. Aunque sé que mi apego ansioso a veces reacciona de forma intensa frente al miedo, eso no quiere decir que seamos incompatibles. Significa que necesitamos aprender a comunicarnos y a respetarnos desde un lugar más sano, asumiendo yo la responsabilidad total de trabajar en mis propios demonios internos para no volvértelos a proyectar.
+                        </p>
+
+                        <div class="my-6 flex justify-center">
+                            <div class="polaroid-frame transform rotate-1 max-w-[260px] sm:max-w-xs">
+                                <div class="polaroid-tape"></div>
+                                <img src="https://raw.githubusercontent.com/aromq90-max/carta/main/14.jpeg" 
+                                     alt="Nuestros recuerdos especiales" 
+                                     class="w-full h-40 sm:h-52 object-cover rounded-sm bg-[#f2e6df]"
+                                     onerror="this.src='https://placehold.co/600x400/4A1217/FBF7EE?text=Foto+14.jpeg+No+Encontrada'">
+                                <p class="font-cursive text-center text-lg text-wine-900 mt-2">Nuestros recuerdos más bonitos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CAPÍTULO 4 -->
+                    <div class="space-y-2.5">
+                        <h2 class="font-serif text-xl sm:text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
+                            <span class="text-gold text-base">✦</span> 4. Acciones reales y transformación personal
+                        </h2>
+                        <p class="text-gray-700 leading-6 sm:leading-7">
+                            No quiero que esto se quede en simples palabras bonitas que se las lleva el viento. Estos días me han servido profundamente para reestructurarme. Estoy trabajando mucho en mí, tanto psicológica como físicamente. Me está costando, sí, pero estoy canalizando toda esa energía para estar tranquilo, para centrarme en mi propio mundo sabiendo que tú tienes el tuyo, y que la belleza de estar juntos radica en compartir sanamente lo mejor de cada uno sin perder nuestra individualidad. Estoy sanando por mí mismo. Luchar y buscar reconstruir por amor no nace de la insistencia terca, sino de un amor real y genuino que se demuestra con cambios verdaderos y hechos tangibles todos los días.
+                        </p>
+                    </div>
+
+                    <!-- CAPÍTULO 5 -->
+                    <div class="space-y-2.5 pb-2">
+                        <h2 class="font-serif text-xl sm:text-2xl text-wine-900 font-semibold italic flex items-center gap-2">
+                            <span class="text-gold text-base">✦</span> 5. El amor que no se apaga y el deseo de conversar
+                        </h2>
+                        <p class="text-gray-700 leading-6 sm:leading-7">
+                            No he dejado de pensar en ti ni un solo instante. Tan solo despertar, estar en mi casa haciendo mis cosas, pasar por una florería o escuchar de la nada ciertas canciones me devuelve inmediatamente a ti y a todo lo hermoso que construimos en estos 5 meses. Sé que de repente hoy no quieras saber nada o tengas dudas, pero daría todo por tener esa oportunidad que verdaderamente nos debimos dar ese último día: una charla desde la madurez, donde el amor y los cambios puedan demostrarse de verdad. No se trata de las promesas de antes, sino del hombre en el que me estoy convirtiendo. Te amo con el alma, y aunque sé que debo respetar tus tiempos, quería que supieras que mi corazón sigue abierto y dispuesto a hacer las cosas bien.
+                        </p>
+
+                        <div class="my-6 flex justify-center">
+                            <div class="polaroid-frame transform -rotate-1 max-w-[260px] sm:max-w-xs">
+                                <div class="polaroid-tape"></div>
+                                <img src="https://raw.githubusercontent.com/aromq90-max/carta/main/16.jpeg" 
+                                     alt="Momentos juntos" 
+                                     class="w-full h-40 sm:h-52 object-cover rounded-sm bg-[#f2e6df]"
+                                     onerror="this.src='https://placehold.co/600x400/4A1217/FBF7EE?text=Foto+16.jpeg+No+Encontrada'">
+                                <p class="font-cursive text-center text-lg text-wine-900 mt-2">Siempre en mi corazón, Karina</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+
+                <div class="mt-8 pt-6 border-t border-wine-900/15 text-center space-y-3">
+                    <p class="font-serif text-sm sm:text-base text-wine-900 italic">Si deseas conversar tranquilamente cuando estés lista:</p>
+                    
+                    <button id="replyBtn" class="w-full sm:w-auto px-6 py-3 bg-wine-900 hover:bg-wine-800 text-gold font-medium rounded-full shadow-lg border border-gold/30 transition-all active:scale-95 inline-flex items-center justify-center gap-2 text-xs sm:text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <span>Me gustaría conversar cuando sea el momento</span>
+                    </button>
+
+                    <div id="replyConfirmation" class="hidden p-3 rounded-lg bg-wine-900/10 border border-wine-900/20 text-wine-900 font-serif italic text-xs sm:text-sm max-w-sm mx-auto">
+                        Gracias por leer esta carta, Karina. Respeto tu espacio y estaré disponible cuando lo sientas. Sin prisa.
+                    </div>
+                </div>
+
+                <footer class="mt-10 text-right border-t border-wine-900/10 pt-5">
+                    <p class="font-sans text-[10px] text-gray-500 uppercase tracking-widest">Con sinceridad, respeto y amor,</p>
+                    <p class="font-cursive text-2xl sm:text-3xl text-wine-900 mt-1">Para ti, Karina</p>
+                </footer>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SCRIPT TÁCTIL Y DE POSICIONAMIENTO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bgMusic = document.getElementById('bgMusic');
+            const audioToggleBtn = document.getElementById('audioToggleBtn');
+            const audioIcon = document.getElementById('audioIcon');
+            const audioText = document.getElementById('audioText');
+            let isPlaying = false;
+
+            function startMusic() {
+                if (!isPlaying) {
+                    bgMusic.play().then(() => {
+                        isPlaying = true;
+                        audioIcon.textContent = "⏸️";
+                        audioText.textContent = "Pausar";
+                    }).catch(e => {
+                        console.log("Audio requerido por interacción:", e);
+                    });
+                }
+            }
+
+            audioToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (!isPlaying) {
+                    bgMusic.play().then(() => {
+                        isPlaying = true;
+                        audioIcon.textContent = "⏸️";
+                        audioText.textContent = "Pausar";
+                    });
+                } else {
+                    bgMusic.pause();
+                    isPlaying = false;
+                    audioIcon.textContent = "🎵";
+                    audioText.textContent = "Música";
+                }
+            });
+
+            const phrases = [
+                "Lo que siento por ti es real, pero sé que necesito madurar.",
+                "Entiendo perfectamente el error que cometí al no respetar tu espacio.",
+                "Estoy trabajando en mi ansiedad y en ser una mejor versión de mí.",
+                "Abriendo el mensaje..."
+            ];
+
+            let clickCount = 0;
+            const maxClicks = 4;
+
+            const waxSealBtn = document.getElementById('waxSealBtn');
+            const sealPulse = document.getElementById('sealPulse');
+            const sealMessage = document.getElementById('sealMessage');
+            const clickProgress = document.getElementById('clickProgress');
+            
+            const crack1 = document.getElementById('crack1');
+            const crack2 = document.getElementById('crack2');
+            const crack3 = document.getElementById('crack3');
+
+            const envelopeFlap = document.getElementById('envelopeFlap');
+            const letterInside = document.getElementById('letterInside');
+            const phase1 = document.getElementById('phase1');
+            const phase2 = document.getElementById('phase2');
+            const replyBtn = document.getElementById('replyBtn');
+            const replyConfirmation = document.getElementById('replyConfirmation');
+
+            function handleSealInteraction(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (clickCount < maxClicks) {
+                    clickCount++;
+
+                    if (sealPulse) sealPulse.style.display = 'none';
+
+                    clickProgress.textContent = `Clic ${clickCount} de ${maxClicks}`;
+
+                    sealMessage.style.opacity = '0';
+                    setTimeout(() => {
+                        sealMessage.textContent = `"${phrases[clickCount - 1]}"`;
+                        sealMessage.style.opacity = '1';
+                    }, 150);
+
+                    if (clickCount === 1) crack1.style.opacity = '1';
+                    if (clickCount === 2) crack2.style.opacity = '1';
+                    if (clickCount === 3) crack3.style.opacity = '1';
+
+                    if (clickCount === 4) {
+                        startMusic(); 
+                        triggerEnvelopeOpening();
+                    }
+                }
+            }
+
+            waxSealBtn.addEventListener('touchend', handleSealInteraction, { passive: false });
+            waxSealBtn.addEventListener('click', handleSealInteraction);
+
+            function triggerEnvelopeOpening() {
+                waxSealBtn.style.opacity = '0';
+                waxSealBtn.style.transform = 'translate(-50%, -40%) scale(1.2)';
+                waxSealBtn.style.transition = 'all 0.4s ease';
+
+                setTimeout(() => {
+                    envelopeFlap.style.transform = 'rotateX(180deg)';
+                }, 300);
+
+                setTimeout(() => {
+                    letterInside.style.transform = 'translateY(-110px)';
+                }, 800);
+
+                setTimeout(() => {
+                    phase1.style.opacity = '0';
+                    phase1.style.transform = 'scale(0.95)';
+
+                    setTimeout(() => {
+                        phase1.style.display = 'none';
+                        phase2.classList.remove('hidden');
+                        
+                        void phase2.
